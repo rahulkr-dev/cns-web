@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import iconData from "./sidebarData";
+import { hideScrollBar } from './../utils/utils';
 
 const Sidebar = ({ isOpen }) => {
   const [isLargerThan800] = useMediaQuery("(min-width: 800px)", {
@@ -18,7 +19,7 @@ const Sidebar = ({ isOpen }) => {
     fallback: false, // return false on the server, and re-evaluate on the client side
   });
   return (
-    <Box h="100vh" bg="#FF5100" p="4" color="whiteAlpha.800">
+    <Box h="100vh" overflowX={"scroll"} css={hideScrollBar}  bg="#FF5100" p="4" color="whiteAlpha.800">
       {iconData.map((card, index) => (
         <Box key={index} mb="4">
           <Text fontSize="sm" fontWeight="500" color={"whiteAlpha.600"} mb="2">

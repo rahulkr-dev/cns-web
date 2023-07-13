@@ -4,11 +4,17 @@ import Portfollio from "./portfollio/Portfollio";
 import { FaBars, FaArrowRight,FaSearch } from "react-icons/fa";
 import RevenueChart from "./revenue/Revenue";
 import WorldMap from "./worldMap/WorldMap";
+import BestSellingProduct from "./bestSellingProduct/BestSellingProduct";
+import TopSeller from "./topSeller/TopSeller";
+import { hideScrollBar } from "./utils/utils";
 
 
 const Dashboard = ({ onToggle, isOpen }) => {
   return (
-    <Box>
+    <Box h="100vh" 
+    overflowX={"scroll"}
+    css={hideScrollBar}
+    >
       <Flex bg="white" alignItems={"center"} py={3}>
         <Center cursor={"pointer"} fontWeight={"normal"} p="1rem" onClick={() => onToggle()}>
           {!isOpen ? <FaBars size="22px" /> : <FaArrowRight size="25px" />}
@@ -23,9 +29,13 @@ const Dashboard = ({ onToggle, isOpen }) => {
       </Flex>
       <Portfollio />
       {/* Show charts */}
-      <Grid px="1rem" templateColumns ={["repeat(1, 1fr)","repeat(1 1fr)","repeat(1, 1fr)", "60% 40%"]} gap={4}>
+      <Grid mt="1.5rem" px="1rem" templateColumns ={["repeat(1, 1fr)","repeat(1 1fr)","repeat(1, 1fr)", "60% 40%"]} gap={4}>
         <RevenueChart />
         <WorldMap />
+      </Grid>
+      <Grid mt="2.5rem" px="1rem" templateColumns ={["repeat(1, 1fr)","repeat(1 1fr)","repeat(1, 1fr)", "50% 45%"]} gap={4}>
+        <BestSellingProduct />
+        <TopSeller />
       </Grid>
     </Box>
   );
