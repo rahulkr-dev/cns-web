@@ -1,7 +1,7 @@
 import React from 'react';
 import { Chart as ChartJS, LinearScale, CategoryScale, BarElement, PointElement, LineElement, Legend, Tooltip, LineController, BarController } from 'chart.js';
 import { Chart } from 'react-chartjs-2';
-import { Box } from '@chakra-ui/react';
+import { Box,Flex,Heading,Text } from '@chakra-ui/react';
 
 ChartJS.register(LinearScale, CategoryScale, BarElement, PointElement, LineElement, Legend, Tooltip, LineController, BarController);
 
@@ -66,9 +66,31 @@ const chartOptions = {
 };
 
 function CombinedChart() {
+  const fakeData = [
+    {title:"Orders",val:7554},
+    {title:"Earnings",val:"$22.89k"},
+    {title:"Refunds",val:367},
+    {title:"Comversional Ratio",val:'75.54%'},
+  ]
   return (
-    <Box bg="white" boxShadow={"md"} p="1.5rem" width="100%" height="300px">
+    <Box bg="white">
+      <Heading p="1rem" color="black" fontSize="1.3rem">Revenue</Heading>
+
+    <Flex gap="1rem" p="1rem" justifyContent={"center"}>
+      {
+        fakeData.map((item,_i)=>(
+          <Box border="1px dotted gray" p="1rem" color="gray" fontSize={".9rem"} key = {_i}>
+            <Text fontWeight={"bold"}>{item.val}</Text>
+            <Text>{item.title}</Text>
+          </Box>
+        ))
+      }
+      </Flex>
+   
+    <Box bg="white" boxShadow={"md"} p="1.5rem" width="100%" height="400px">
+   
       <Chart type="bar" data={data} options={chartOptions} />
+    </Box>
     </Box>
   );
 }
