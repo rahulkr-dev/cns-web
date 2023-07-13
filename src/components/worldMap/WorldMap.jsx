@@ -2,6 +2,8 @@ import { VectorMap } from "@react-jvectormap/core";
 import { worldMill } from "@react-jvectormap/world";
 import React from "react";
 import { colorScale, countries, missingCountries } from "./Countries";
+import { Box, Flex } from "@chakra-ui/react";
+import CountrySlider from "./CountrySlider";
 
 function WorldMap() {
   return (
@@ -9,10 +11,10 @@ function WorldMap() {
       <VectorMap
         map={worldMill}
         containerStyle={{
-          width: "700px",
-          height: "600px",
+          width: "500px",
+          height: "400px",
         }}
-        backgroundColor="#282c34"
+        backgroundColor="#8c92ac"
         markers={missingCountries}
         markerStyle={{
           initial: {
@@ -52,7 +54,9 @@ function WorldMap() {
                     </p>
                     </div>`);
         }}
+        
       />
+  
     </div>
   );
 }
