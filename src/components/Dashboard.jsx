@@ -1,7 +1,9 @@
-import { Button, Box, Flex, Center,Input,InputGroup, InputLeftElement } from "@chakra-ui/react";
+import { Button, Box, Flex, Center,Input,InputGroup, InputLeftElement,Grid } from "@chakra-ui/react";
 import React from "react";
 import Portfollio from "./portfollio/Portfollio";
 import { FaBars, FaArrowRight,FaSearch } from "react-icons/fa";
+import RevenueChart from "./revenue/Revenue";
+import WorldMap from "./worldMap/WorldMap";
 
 
 const Dashboard = ({ onToggle, isOpen }) => {
@@ -20,6 +22,11 @@ const Dashboard = ({ onToggle, isOpen }) => {
         </InputGroup>
       </Flex>
       <Portfollio />
+      {/* Show charts */}
+      <Grid px="1rem" templateColumns ={["repeat(1, 1fr)","repeat(1 1fr)","repeat(1, 1fr)", "60% 40%"]} gap={4}>
+        <RevenueChart />
+        <WorldMap />
+      </Grid>
     </Box>
   );
 };
