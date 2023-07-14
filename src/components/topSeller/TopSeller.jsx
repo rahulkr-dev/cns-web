@@ -62,7 +62,7 @@ const data = [
   ];
 const TopSeller = () => {
   return (
-    <Box overflowX={"scroll"} css={hideScrollBar}>
+    <Box overflowX={"scroll"} css={hideScrollBar} bg="white">
       <Flex
         p="5px 1rem"
         boxShadow={"md"}

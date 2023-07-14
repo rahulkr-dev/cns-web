@@ -12,7 +12,7 @@ export const ProductCardItem = ({first,second})=>{
 const ProductCard = ({img,name,date,price,order,stock,amount}) => {
   return (
     <Flex transition={"all .3s ease-in-out"} cursor={"pointer"} _hover={{bg:"none"}} gap="1rem" bg="white" borderBottomWidth={"2px"} p="1rem" alignItems={"center"}>
-        <Center p="1rem" bg="orange.100" borderRadius={"5px"}>
+        <Center p="1rem" bg="gray.100" borderRadius={"5px"}>
         <Image boxSize={"2rem"} src={img} />
         </Center>
        <ProductCardItem first={name} second={date}/>

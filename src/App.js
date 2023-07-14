@@ -4,7 +4,8 @@ import Dashboard from "./components/Dashboard";
 import { Box, Grid, useDisclosure, useMediaQuery } from "@chakra-ui/react";
 import SidebarForMobile from "./components/sidebar/SidebarForMobile";
 import AfterIsOpenClose from "./components/sidebar/AfterIsOpenClose";
-import CombinedChart from "./components/revenue/Revenue";
+import RotatingSettingIcon from "./components/common/RotatingSearchIcon";
+import { hideScrollBar } from "./components/utils/utils";
 
 const App = () => {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
@@ -16,7 +17,10 @@ const App = () => {
   return (
     <Grid
       templateColumns={["full", "full", `${!isOpen ? "15rem" : "4rem"} auto`]}
-      bg={"orange.100"}
+      bg={"gray.100"}
+      maxW={"100vw"}
+      overflowY={"scroll"}
+      css={hideScrollBar}
     >
       {isLargerThan800 ? (
         <Box>
@@ -27,7 +31,8 @@ const App = () => {
       )}
 
       <Dashboard onToggle={onToggle} isOpen={isOpen} />
-      {/* <CombinedChart /> */}
+      {/* Rotating icons */}
+      {isLargerThan800 && <RotatingSettingIcon /> }
     </Grid>
   );
 };

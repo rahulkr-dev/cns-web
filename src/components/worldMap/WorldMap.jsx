@@ -7,7 +7,7 @@ import CountrySlider from "./CountrySlider";
 
 function WorldMap() {
   return (
-    <div style={{ margin: "auto", width: "700px", height: "600px" }}>
+    <div style={{ margin: "auto", width: "700px", height: "600px",maxWidth:"90vw",overflowX:"scroll" }}>
       <VectorMap
         map={worldMill}
         containerStyle={{

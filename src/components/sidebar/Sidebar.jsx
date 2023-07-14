@@ -21,7 +21,7 @@ const Sidebar = ({ isOpen }) => {
   });
   return (
     <Box h="100vh" overflowX={"scroll"} css={hideScrollBar}  bg="#FF5100" p="4" color="whiteAlpha.800">
-      {/* <Heading color={"white"} textAlign={"center"}>Rahul</Heading> */}
+      <Heading display={{base:"none",lg:"block"}} fontFamily={"monospace"} mb="2rem" color={"white"} textAlign={"center"}>Rahul</Heading>
       {iconData.map((card, index) => (
         <Box key={index} mb="4">
           <Text fontSize="sm" fontWeight="500" color={"whiteAlpha.600"} mb="2">

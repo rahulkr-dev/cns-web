@@ -1,11 +1,11 @@
 import React from 'react';
 import { Table, Thead, Tbody, Tr, Th, Td,Box,Flex, Button,Text, Badge } from '@chakra-ui/react';
-import { totalOrder } from '../utils/utils';
+import { hideScrollBar, totalOrder } from '../utils/utils';
 const image = 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=600'
 function OrderTable() {
 const colors = ["red","green","blue","purple"]
   return (
-    <Box>
+    <Box overflowX={"scroll"} css={hideScrollBar}>
         <Flex bg="white" borderBottomWidth={"2px"} p="1rem" justifyContent={"space-between"}>
             <Text>Recent Orders</Text>
             <Button size="xs" colorScheme='linkedin'>Generate Report</Button>

@@ -21,38 +21,48 @@ import OrderTable from "./recentOrder/RecentOrder";
 import StoreChart from "./storeChart/StoreChart";
 import { BiCalendarAlt } from "react-icons/bi";
 import Nav from "./Nav";
+import RotatingSearchIcon from "./common/RotatingSearchIcon";
 
 const Dashboard = ({ onToggle, isOpen }) => {
   return (
     <Box h="100vh" overflowX={"scroll"} css={hideScrollBar}>
-      <Flex bg="white" alignItems={"center"} py={3}>
-        <Center
-          cursor={"pointer"}
-          fontWeight={"normal"}
-          p="1rem"
-          onClick={() => onToggle()}
-        >
-          {!isOpen ? <FaBars size="22px" /> : <FaArrowRight size="25px" />}
-        </Center>
-        <InputGroup>
-          <InputLeftElement
-            pointerEvents="none"
-            children={<FaSearch color="gray.500" />}
-          />
-          <Input
-            w="-moz-max-content"
-            variant={"unstyled"}
-            type="text"
-            placeholder="Search..."
-            bg="gray.100"
-            pl={10}
-            py={2}
-          />
-        </InputGroup>
+      <Flex
+        bg="white"
+        alignItems={"center"}
+        py={3}
+        flexWrap={"wrap"}
+        justifyContent={"space-between"}
+
+      >
+        <Flex alignItems={"center"}>
+          <Center
+            cursor={"pointer"}
+            fontWeight={"normal"}
+            p="1rem"
+            onClick={() => onToggle()}
+          >
+            {!isOpen ? <FaBars size="22px" /> : <FaArrowRight size="25px" />}
+          </Center>
+          <InputGroup>
+            <InputLeftElement
+              pointerEvents="none"
+              children={<FaSearch color="gray.500" />}
+            />
+            <Input
+              w={{ base: "full", lg: "13rem" }}
+              variant={"unstyled"}
+              type="text"
+              placeholder="Search..."
+              bg="gray.100"
+              pl={10}
+              py={2}
+            />
+          </InputGroup>
+        </Flex>
         <Nav />
       </Flex>
       {/* Heading  */}
-      <Flex justifyContent={"space-between"} p="1rem">
+      <Flex justifyContent={"space-between"} p="1rem" flexWrap={"wrap"}>
         <Box>
           <Text fontSize="1.2rem" color="black">
             Good Morning, Anna!
@@ -62,7 +72,15 @@ const Dashboard = ({ onToggle, isOpen }) => {
           </Text>
         </Box>
         <Flex alignItems={"center"} gap="1rem">
-            <Input borderRadius={"md"} bg="white" w="max-content" colorScheme="white" p="1rem" type="date" placeholder="4 oct 2022" />
+          <Input
+            borderRadius={"md"}
+            bg="white"
+            w="max-content"
+            colorScheme="white"
+            p="1rem"
+            type="date"
+            placeholder="4 oct 2022"
+          />
           <Button fontSize={".7rem"} size="sm" colorScheme="teal">
             Add Product
           </Button>
@@ -115,6 +133,7 @@ const Dashboard = ({ onToggle, isOpen }) => {
         <StoreChart />
         <OrderTable />
       </Grid>
+      {/* Rotating search icon */}
     </Box>
   );
 };

@@ -16,6 +16,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import Pagination from "../common/Pagenation";
+import { hideScrollBar } from "../utils/utils";
 const data = [
   {
     img: "https://picsum.photos/200/200",
@@ -65,7 +66,7 @@ const data = [
 ];
 const BestSellingProduct = () => {
   return (
-    <Box overflowX={"scroll"}>
+    <Box overflowX={"scroll"} css={hideScrollBar} bg="white">
       <Flex
         p="5px 1rem"
         boxShadow={"md"}
